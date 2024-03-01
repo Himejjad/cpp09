@@ -6,7 +6,7 @@
 /*   By: himejjad <himejjad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 16:13:27 by himejjad          #+#    #+#             */
-/*   Updated: 2024/02/29 18:10:10 by himejjad         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:59:01 by himejjad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ const char *BitcoinExchange::exce::what() const throw()
 	return (message_.c_str());
 }
 
-BitcoinExchange::exce:: ~exce() _NOEXCEPT
+BitcoinExchange::exce:: ~exce()  _GLIBCXX_NOTHROW
 {
 	
 }

@@ -6,7 +6,7 @@
 /*   By: himejjad <himejjad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:20:18 by himejjad          #+#    #+#             */
-/*   Updated: 2024/03/01 14:16:59 by himejjad         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:59:51 by himejjad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ public:
 			public:
 				exce();
 				exce(std::string message);
-				const char *what() const _NOEXCEPT;
-				~exce() _NOEXCEPT;
+				const char *what() const  _GLIBCXX_NOTHROW;
+				~exce()  _GLIBCXX_NOTHROW;
 		};
 };
 
