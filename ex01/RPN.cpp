@@ -6,7 +6,7 @@
 /*   By: himejjad <himejjad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:20:18 by himejjad          #+#    #+#             */
-/*   Updated: 2024/03/01 12:04:03 by himejjad         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:35:19 by himejjad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ RPN::~RPN()
 
 RPN::RPN(const std::string& input) : text(input) {}
 
-bool RPN::is_number(const std::string& str) 
+bool RPN::check_number(const std::string& str) 
 {
     for (size_t i = 0; i < str.length(); ++i) 
     {
@@ -61,21 +61,31 @@ bool RPN::is_number(const std::string& str)
     float result = 0;
     while (str >> rnp) 
     {
-        if (rnp.size() > 1 && !is_number(rnp))
-            throw(exce("Error : bad input"));
-        else if (is_number(rnp)) 
+            std::cout << rnp[1] << std::endl;
+        if (rnp.size() > 1 && !check_number(rnp))
+            throw(exce("5Error : bad input"));
+        else if (check_number(rnp)) 
         {
             if (std::atoi(rnp.c_str()) > 10)
-                throw(exce("Error : bad input"));
-            std::cout << std::atoi(rnp.c_str()) << std::endl;
+                throw(exce("4Error : bad input"));
             stack_.push(std::atoi(rnp.c_str()));
+        std::cout <<"here 1 : " <<stack_.top() << std::endl;
         } 
-        if (stack_.size() >= 2 && rnp.size() == 1) 
+        else if (stack_.size() > 1 && rnp.size() == 1) 
         {
+            // std::cout << stack_.size() << std::endl;
             float operand2 = stack_.top();
+        std::cout <<"here 2 : " <<stack_.top() << std::endl;
+
             stack_.pop();
+        std::cout <<"here 3 : " <<stack_.top() << std::endl;
+
             float operand1 = stack_.top();
+        std::cout <<"here 4 : " <<stack_.top() << std::endl;
+
             stack_.pop();
+        // std::cout <<"here 5 : " <<stack_.top() << std::endl;
+
             switch (rnp[0]) 
             {
                 case '+':
@@ -89,18 +99,20 @@ bool RPN::is_number(const std::string& str)
                     break;
                 case '/':
                     if (operand2 == 0)
-                        throw(exce("Error : bad input"));
+                        throw(exce("can't divission by zero"));
                     result = operand1 / operand2;
                     break;
                 default:
-                    throw(exce("Error : bad input"));
+                    throw(exce("2Error : bad input"));
             }
             stack_.push(result);
+        std::cout <<"here 6 : " <<stack_.top() << std::endl;
+
         } 
         else
-            throw(exce("Error : bad input"));
+            throw(exce("1Error : bad input"));
     }
     if (stack_.size() != 1)
-        throw(exce("Error : bad input"));
+        throw(exce("3Error : bad input"));
     std::cout << stack_.top() << std::endl;
 }

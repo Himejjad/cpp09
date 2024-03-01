@@ -6,7 +6,7 @@
 /*   By: himejjad <himejjad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:20:18 by himejjad          #+#    #+#             */
-/*   Updated: 2024/03/01 11:37:50 by himejjad         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:16:59 by himejjad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 public:
     RPN(/* args */);
     void calculator();
-    bool is_number(const std::string& str);
+    bool check_number(const std::string& str);
     RPN(const std::string& input);
     ~RPN();
     class exce : public std::exception
