@@ -6,7 +6,7 @@
 /*   By: himejjad <himejjad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:20:18 by himejjad          #+#    #+#             */
-/*   Updated: 2024/03/01 17:25:06 by himejjad         ###   ########.fr       */
+/*   Updated: 2024/03/03 15:08:58 by himejjad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool RPN::check_number(const std::string& str)
             stack_.push(std::atoi(rnp.c_str()));
             // std::cout <<"here 1 : " <<stack_.top() << std::endl;
         } 
-        else if (stack_.size() == 2) 
+        else if (stack_.size() >= 2) 
         {
             // for(size_t i = 0; i < stack_.size(); i++)
             //     std::cout <<"here 1 : " << stack_.top() - 1 << ":" << stack_.size() <<std::endl;
